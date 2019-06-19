@@ -36,7 +36,7 @@ class MoviesList extends Component {
               <div className="card-body">
                 <h5 className="card-title">{movie.title}</h5>
                 <img
-                  src="`${API_URL}/{movies.backdrop_path}`"
+                  src={"https://image.tmdb.org/t/p/w500/" + movie.backdrop_path}
                   alt="movie image"
                 />
                 <h6 className="card-subtitle mb-2 text-muted">
