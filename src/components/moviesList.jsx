@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-const IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
 
 const API_URL =
   "https://api.themoviedb.org/3/movie/popular?api_key=30ade5dac6f8d31a4b3bfc2083fcb2d5&language=en-US&page=1";
