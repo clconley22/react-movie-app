@@ -1,11 +1,20 @@
 import React, { Component } from "react";
-import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
-import { searchElement } from "./searchBar.jsx";
+import { MDBCol, MDBIcon } from "mdbreact";
 
 class navBar extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      search: ""
+    };
   }
+
+  updateSearch(event) {
+    this.setState({ search: event.target.value.substr(0, 20) });
+    console.log(this.state.search);
+  }
+
   render() {
     return (
       <nav className="navbar navbar-expand-md fixed-top">
@@ -34,20 +43,27 @@ class navBar extends Component {
               </a>
             </li>
           </ul>
-          <MDBCol md="3">
-            <MDBFormInline className="md-form mr-auto">
-              <input
-                className="form-control mr-sm-2"
-                type="text"
-                placeholder="Search Movies"
-                aria-label="Search"
-              />
-              <MDBBtn rounded size="sm" type="submit" className="mr-auto">
-                Search
-              </MDBBtn>
-            </MDBFormInline>
-          </MDBCol>
         </div>
+        <MDBCol md="4">
+          <div className="input-group md-form form-sm form-1 pl-0">
+            <div className="input-group-prepend">
+              <span
+                className="input-group-text blue lighten-3"
+                id="basic-text1"
+              >
+                <MDBIcon className="text-white" icon="search" />
+              </span>
+            </div>
+            <input
+              className="form-control my-0 py-1"
+              type="text"
+              placeholder="Seach Movies"
+              aria-label="Search"
+              value={this.state.search}
+              onChange={this.updateSearch.bind(this)}
+            />
+          </div>
+        </MDBCol>
       </nav>
     );
   }
